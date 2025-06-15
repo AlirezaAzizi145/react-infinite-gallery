@@ -1,6 +1,6 @@
 {
   "name": "react-infinite-gallery",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A beautiful infinite wraparound gallery React component.",
   "main": "index.js",
   "module": "index.js",
