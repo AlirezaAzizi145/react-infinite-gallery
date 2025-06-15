@@ -55,10 +55,10 @@ function App() {
 
 ## Important Notes ⚠️
 
-- 📸 A minimum of 20 images is required for optimal performance and user experience
-- 🎨 Supported image formats: jpg, png, webp
-- ⚡ For best performance, use appropriately sized and optimized images
-- 🔍 Make sure to import the CSS file as shown in the usage example
+- A minimum of 20 images is required for optimal performance and user experience
+- Supported image formats: jpg, png, webp
+- For best performance, use appropriately sized and optimized images
+- Make sure to import the CSS file as shown in the usage example
 
 ## Example
 
@@ -66,36 +66,4 @@ Check out the `usage-example.jsx` file in the repository for a complete implemen
 
 ## License 📄
 
-MIT
-
----
-
-<div dir="rtl">
-
-# گالری بی‌نهایت ری‌اکت 🖼️
-
-یک کامپوننت React قدرتمند برای ایجاد گالری‌های تصویری زیبا، واکنش‌گرا و با قابلیت اسکرول بی‌نهایت. مناسب برای گالری‌های عکس، وب‌سایت‌های نمونه کار و هر برنامه‌ای که نیاز به نمایش مجموعه‌ای بزرگ از تصاویر دارد.
-
-## نصب 📦
-
-```bash
-npm install react-infinite-gallery
-```
-
-## ویژگی‌ها ✨
-
-- اسکرول بی‌نهایت با بارگذاری نرم
-- چیدمان شبکه‌ای کاملاً واکنش‌گرا
-- بارگذاری تنبل تصاویر برای عملکرد بهتر
-- تنظیمات کاملاً قابل سفارشی‌سازی
-- طراحی تمیز و مدرن
-- سبک و بهینه‌سازی شده برای عملکرد بهتر
-
-## نکات مهم ⚠️
-
-- حداقل ۲۰ تصویر برای عملکرد و تجربه کاربری بهینه مورد نیاز است
-- از فرمت‌های تصویری jpg، png و webp پشتیبانی می‌شود
-- برای بهترین عملکرد، از تصاویر با اندازه مناسب و بهینه‌سازی شده استفاده کنید
-- حتماً فایل CSS را همانطور که در مثال نشان داده شده است import کنید
-
-</div> 
+MIT 
