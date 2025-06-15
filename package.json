@@ -16,6 +16,10 @@
   "keywords": ["react", "gallery", "infinite", "component", "image", "video"],
   "author": "Alireza Azizi",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlirezaAzizi145/react-infinite-gallery.git"
+  },
   "peerDependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
