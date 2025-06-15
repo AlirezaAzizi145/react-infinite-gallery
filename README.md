@@ -2,6 +2,10 @@
 
 A beautiful infinite wraparound gallery React component with animation and support for images and videos.
 
+## Live Demo 🚀
+
+Check out the [live demo](https://codesandbox.io/p/sandbox/djftlv) to see the component in action!
+
 ## Installation 📦
 
 ```bash
@@ -15,35 +19,33 @@ yarn add react-infinite-gallery
 
 ## Features ✨
 
-- 🎯 Support for both images and videos
-- 🔄 Beautiful wraparound animation
-- 📱 Responsive card layout
-- ⚙️ Highly customizable settings
-- 🎨 Custom badges and styling
-- 🚀 Lightweight and performant
+- 🔄 Infinite scrolling with smooth loading
+- 📱 Fully responsive grid layout
+- 🎯 Lazy loading of images for better performance
+- ⚙️ Highly customizable grid settings
+- 🎨 Clean and modern design
+- 🚀 Lightweight and optimized for performance
 
 ## Usage 💻
 
 ```jsx
-import InfiniteGallery from 'react-infinite-gallery';
+import { InfiniteGallery } from 'react-infinite-gallery';
 import 'react-infinite-gallery/InfiniteGallery.css';
 
-const itemsData = [
-  { id: 1, type: 'image', content: 'https://example.com/image.jpg', badgeText: 'Sample' },
-  { id: 2, type: 'video', content: 'https://example.com/video.mp4', badgeText: 'Video' },
-  // ... more items
-];
-
 function App() {
+  const images = [
+    // Minimum 20 images required for optimal experience
+    { src: 'https://example.com/image1.jpg', alt: 'Description 1' },
+    { src: 'https://example.com/image2.jpg', alt: 'Description 2' },
+    // ... more images
+  ];
+
   return (
     <InfiniteGallery
-      itemsData={itemsData}
-      cardWidth={280}
-      cardHeight={380}
-      headerContent={<h1>My Gallery</h1>}
-      footerContent={<p>Footer</p>}
-      galleryAnimate={true}
-      badgeClass="my-badge"
+      images={images}
+      columns={3}
+      gap={10}
+      loadMoreTrigger={0.8}
     />
   );
 }
@@ -51,43 +53,25 @@ function App() {
 
 ## Props 🔧
 
-| Name | Type | Default | Description |
+| Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `itemsData` | `array` | `[]` | Array of items (image, video, or HTML) |
-| `cardWidth` | `number` | `280` | Card width in pixels |
-| `cardHeight` | `number` | `380` | Card height in pixels |
-| `playButtonProps` | `object` | `{}` | Custom props for the video play button |
-| `expandButtonProps` | `object` | `{}` | Custom props for the video expand button |
-| `badgeClass` | `string` | `''` | Custom class for item badges |
-| `stackInDuration` | `number` | `1500` | Animation in duration (ms) |
-| `stackOutDuration` | `number` | `1000` | Animation out duration (ms) |
-| `headerContent` | `ReactNode` | `null` | Header content (top of gallery) |
-| `footerContent` | `ReactNode` | `null` | Footer content (bottom of gallery) |
-| `infoButton` | `ReactNode` | `null` | Info button (optional) |
-| `galleryAnimate` | `boolean` | `true` | Enable/disable initial animation |
-
-## Item Structure 📝
-
-Each item in `itemsData` should have one of these structures:
-
-```js
-{
-  id: 1,
-  type: 'image' | 'video' | 'html',
-  content: 'image/video URL or HTML',
-  badgeText: 'Badge text (optional)',
-  color: '#HEX (optional)',
-  rotation: number (optional),
-  scale: number (optional)
-}
-```
+| `images` | `Array<{ src: string, alt: string }>` | Required | Array of image objects (minimum 20 images) |
+| `columns` | `number` | `3` | Number of columns in the grid |
+| `gap` | `number` | `10` | Gap between images in pixels |
+| `loadMoreTrigger` | `number` | `0.8` | Scroll position (0-1) to trigger loading more images |
+| `className` | `string` | `''` | Additional CSS class for the gallery container |
+| `imageClassName` | `string` | `''` | Additional CSS class for individual images |
 
 ## Important Notes ⚠️
 
-- Make sure to import the CSS styles as shown in the usage example
-- Only MP4 format is supported for videos
-- The component works with all React projects (Vite, CRA, Next.js, etc)
-- For best performance, use appropriately sized images and videos
+- A minimum of 20 images is required for optimal performance and user experience
+- Supported image formats: jpg, png, webp
+- For best performance, use appropriately sized and optimized images
+- Make sure to import the CSS file as shown in the usage example
+
+## Example
+
+Check out the `usage-example.jsx` file in the repository for a complete implementation example.
 
 ## License 📄
 
