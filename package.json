@@ -1,0 +1,35 @@
+{
+  "name": "react-infinite-gallery",
+  "version": "1.0.7",
+  "description": "A beautiful infinite wraparound gallery React component.",
+  "main": "index.js",
+  "module": "index.js",
+  "scripts": {
+    "build": "babel InfiniteGallery.jsx --out-file InfiniteGallery.js --presets @babel/preset-env,@babel/preset-react",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "index.js",
+    "InfiniteGallery.js",
+    "InfiniteGallery.css"
+  ],
+  "keywords": ["react", "gallery", "infinite", "component", "image", "video"],
+  "author": "Alireza Azizi",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.21.0",
+    "@babel/preset-react": "^7.21.0"
+  },
+  "babel": {
+    "presets": [
+      ["@babel/preset-env", { "modules": false }],
+      ["@babel/preset-react", { "runtime": "automatic" }]
+    ]
+  }
+} 

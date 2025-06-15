@@ -1,0 +1,331 @@
+/* Root container covering full viewport and capturing events */
+.ig-root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #0f172a;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+}
+
+/* Global body reset (in case other components loaded) */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0f172a;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+/* Loader styles */
+.ig-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease-out;
+}
+.ig-loader-content {
+    text-align: center;
+}
+.ig-loader-title {
+    font-size: 1.875rem; /* text-3xl */
+    line-height: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.ig-loader-subtitle {
+    color: rgb(156, 163, 175);
+    margin-bottom: 1.5rem;
+}
+.ig-loader-bar {
+    width: 200px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.ig-loader-progress {
+    height: 100%;
+    width: 0%;
+    background-color: #f472b6;
+    transition: width 0.3s ease-out;
+}
+.ig-loading-text {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(156, 163, 175);
+    margin-top: 0.5rem;
+}
+
+/* Header and Footer */
+.ig-header, .ig-footer {
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+.ig-header {
+    top: 0;
+}
+.ig-footer {
+    bottom: 0;
+}
+.ig-header-item, .ig-footer-item {
+    pointer-events: auto;
+}
+.ig-header-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+}
+.ig-footer-text {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(156, 163, 175);
+}
+.ig-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.ig-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Info panel */
+.ig-info-panel {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 20px;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.ig-info-panel.visible {
+    opacity: 1;
+}
+
+/* Gallery container and items */
+.ig-gallery-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    pointer-events: none;
+    /* ensure gallery is visible after stacking animation */
+    opacity: 1 !important;
+    /* Add will-change for better performance during dragging */
+    will-change: transform;
+    /* transition: opacity var(--gallery-fade-duration, 500ms) ease-in-out; */
+}
+.ig-gallery-container:active {
+    cursor: grabbing;
+}
+.ig-gallery-container.visible {
+    opacity: 1;
+}
+.ig-gallery-item {
+    position: absolute;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    will-change: transform;
+    cursor: pointer;
+    pointer-events: auto;
+}
+.ig-gallery-item-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.ig-gallery-item-number {
+    position: absolute !important;
+    bottom: 10px !important;
+    right: 10px !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: white !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    z-index: 999 !important;
+    display: block !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.ig-gallery-item-number:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Fullscreen view */
+.ig-fullscreen-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.ig-fullscreen-view.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.ig-fullscreen-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.ig-fullscreen-view.active .ig-fullscreen-content {
+    transform: scale(1);
+}
+.ig-fullscreen-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.ig-fullscreen-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.ig-fullscreen-close::before,
+.ig-fullscreen-close::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+}
+.ig-fullscreen-close::before { transform: rotate(45deg); }
+.ig-fullscreen-close::after  { transform: rotate(-45deg); }
+
+.ig-expand-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.10) 100%);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(255,255,255,0.10) inset;
+  backdrop-filter: blur(8px) saturate(1.5);
+  -webkit-backdrop-filter: blur(8px) saturate(1.5);
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+}
+.ig-expand-btn:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.18) 100%);
+  border: 2px solid rgba(255,255,255,0.35);
+  box-shadow: 0 6px 32px 0 rgba(0,0,0,0.22), 0 2px 12px 0 rgba(255,255,255,0.13) inset;
+}
+
+.ig-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.10) 100%);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(255,255,255,0.10) inset;
+  backdrop-filter: blur(8px) saturate(1.5);
+  -webkit-backdrop-filter: blur(8px) saturate(1.5);
+  padding: 0;
+  padding-left: 4px;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+}
+.ig-play-btn:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.18) 100%);
+  border: 2px solid rgba(255,255,255,0.35);
+  box-shadow: 0 6px 32px 0 rgba(0,0,0,0.22), 0 2px 12px 0 rgba(255,255,255,0.13) inset;
+}
+
+/* Stacking animation */
+.ig-stacking-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.stack-item {
+  position: absolute;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  will-change: transform;
+  transition: transform var(--stack-duration, 1000ms) ease-in-out;
+} 
