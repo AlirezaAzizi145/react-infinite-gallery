@@ -66,18 +66,7 @@ function App() {
       footerContent={<p>Gallery Footer</p>}
       galleryAnimate={true}
       badgeClass="custom-badge"
-      stackInDuration={1500}
-      stackOutDuration={1000}
-      playButtonProps={{
-        className: 'custom-play-btn',
-        style: { backgroundColor: 'rgba(0,0,0,0.5)' },
-        children: '▶'
-      }}
-      expandButtonProps={{
-        className: 'custom-expand-btn',
-        style: { backgroundColor: 'rgba(0,0,0,0.5)' }
-      }}
-      infoButton={<button>ℹ️</button>}
+
     />
   );
 }
