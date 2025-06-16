@@ -1,3 +1,5 @@
+![Gallery Demo](https://raw.githubusercontent.com/AlirezaAzizi145/react-infinite-gallery/main/infinite-gallery.png)
+
 # React Infinite Gallery 🖼️
 
 A beautiful infinite wraparound gallery React component with animation and support for images and videos.
